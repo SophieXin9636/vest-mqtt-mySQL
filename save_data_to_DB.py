@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import json
-import pymqysql
+import pymysql
 
 # MySQL DB Name
 DB_Name =  "Pat_IoT.db"
