@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import paho.mqtt.client as mqtt
-import save_data_to_DB
+from save_data_to_DB import *
+from percussion_data import *
 
 # MQTT Settings 
 MQTT_broker = ""
@@ -17,11 +18,10 @@ def on_connect(mosq, data, flags, rc):
 def on_message(mosq, data, msg):
 	# This is the Master Call for saving MQTT Data into DB
 	# refer to "save_data_to_DB.py" "sensor_Data_Handler" function
-	print("MQTT Data Received... ")
-	print(msg.payload.decode())
+	print("MQTT Data Received... " + msg.payload.decode())
 	#print("MQTT Topic: " + msg.topic)
 	#print("Data: " + msg.payload)
-	sensor_Data_Handler(msg.topic, msg.payload)
+	sensor_Data_Handler(msg.topic, msg.payload.decode())
 
 def on_subscribe(mosq, data, mid, granted_qos):
 	pass
@@ -38,8 +38,7 @@ password = ""
 client.username_pw_set(user, password)
 
 # Connect
-client.connect("192.168.43.30", 1883, int(Keep_Alive_Interval))
-#print("MQTT connect!")
+client.connect("", 1883, int(Keep_Alive_Interval))
 
 # Continue the network loop
 client.loop_forever()

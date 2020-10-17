@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 import pymysql
 
-DB_Name =  "project"
+DB_Name = "project"
 
 # Connect to the database
 db = pymysql.connect(host='localhost',
                      user='',
                      password='',
-                     db="project")
+                     db=DB_Name)
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
@@ -42,13 +42,11 @@ cursor.execute("UNLOCK TABLES;");
 cursor.execute("DROP TABLE IF EXISTS `percussion`;");
 
 sql2 = """
-CREATE TABLE `percussion` (
+CREATE TABLE `treatment` (
   `PerNo` int NOT NULL AUTO_INCREMENT,
-  `AvgPressure` int NOT NULL,
-  `AvgPressureStr` varchar(8) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `AvgPressureStr` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `Time` datetime NOT NULL,
   `Percussion_Name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `TotalTimes` int DEFAULT NULL,
   `LowTimes` int DEFAULT NULL,
   `MediumTimes` int DEFAULT NULL,
   `HighTimes` int DEFAULT NULL,
