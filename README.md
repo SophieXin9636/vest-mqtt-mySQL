@@ -20,7 +20,23 @@ Step3. After Receiving Force Data, it will store data into the Database
 python3 init_DB.py
 ```
 
-### Create Subscriber
+### Create Subscriber and API Handler
+
+* API Handler
+	* Project Database
+		* Connect MySQL Database
+		* Execute Query
+	* Force Data Handler
+		* Add data into list
+		* Calculate Average Force
+		* Statistic patting level (soft, medium, hard)
+		* Add SQL Query
+		* Receive sound file and json data (using socket)
+		* Store data into Project Database
+		* Split sound into Frames
+		* Create Spectrogram
+		* Sound Recognition
+
 ```sh
-python3 mqtt_sub_data.py
+python3 api_handler.py
 ```
