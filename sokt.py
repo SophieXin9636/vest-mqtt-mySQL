@@ -4,15 +4,15 @@ from socket import *
 import json
 
 # server: receive json or sound file
-serverIP = ""
+serverIP = "192.168.43.30"
 serverPort = 12000
 
 class DatabaseManager():
 	def __init__(self):
 		global sound_file_cnt
 		self.connect = pymysql.connect(host='localhost', 
-			                           user='', 
-			                           password='', 
+			                           user='root', 
+			                           password='03135040', 
 			                           db=DB_Name,
 			                           charset='utf8')
 

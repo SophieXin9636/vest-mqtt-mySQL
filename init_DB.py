@@ -5,8 +5,8 @@ DB_Name = "project"
 
 # Connect to the database
 db = pymysql.connect(host='localhost',
-                     user='',
-                     password='',
+                     user='root',
+                     password='03135040',
                      db=DB_Name)
 
 # prepare a cursor object using cursor() method
@@ -46,6 +46,7 @@ CREATE TABLE `treatment` (
   `PerNo` int NOT NULL AUTO_INCREMENT,
   `AvgPressureStr` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `Time` datetime NOT NULL,
+  `Score` double NOT NULL,
   `Percussion_Name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `LowTimes` int DEFAULT NULL,
   `MediumTimes` int DEFAULT NULL,

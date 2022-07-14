@@ -3,7 +3,7 @@ import paho.mqtt.client as mqtt
 from api_handler import *
 
 # MQTT Settings 
-MQTT_broker = ""
+MQTT_broker = "192.168.43.30"
 Keep_Alive_Interval = 45
 MQTT_topic = "Home/Force"
 
@@ -32,12 +32,12 @@ client.on_message = on_message
 client.on_connect = on_connect
 client.on_subscribe = on_subscribe
 
-user = ""
-password = ""
+user = "sophie"
+password = "12345"
 client.username_pw_set(user, password)
 
 # MQTT Client Connect
-client.connect("", 1883, int(Keep_Alive_Interval))
+client.connect("192.168.43.30", 1883, int(Keep_Alive_Interval))
 
 # Continue the network loop
 client.loop_forever()

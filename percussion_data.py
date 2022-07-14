@@ -6,7 +6,7 @@ import pymysql
 DEBUG = True
 
 # server: receive json or sound file
-serverIP = ""
+serverIP = "s192.168.43.30"
 serverPort2 = 14000
 
 DB_Name = "project"
@@ -47,8 +47,8 @@ class DatabaseManager():
 	def __init__(self):
 		global sound_file_cnt
 		self.connect = pymysql.connect(host='localhost', 
-			                           user='', 
-			                           password='', 
+			                           user='root', 
+			                           password='03135040', 
 			                           db=DB_Name,
 			                           charset='utf8')
 
@@ -86,10 +86,15 @@ print_dbg("Socket Connect!", DEBUG, 0)
 l = connSocket.recv(1024).decode()
 
 if l == "Newest":
+	print_dbg(l, DEBUG, 1)
 	# Time, AvgPressureStr, LowTimes, MediumTimes, HighTimes, 
 	dbObj = DatabaseManager()
+	"""
 	sql_query = 'SELECT json_object("AvgPressureStr", AvgPressureStr, "Time", Time, "LowTimes", LowTimes, "MediumTimes", MediumTimes, "HighTimes", HighTimes) FROM treatment WHERE PerNo = (SELECT MAX(PerNo) FROM treatment)'
 	newest_force_json_data = dbObj.add_del_update_db_record(sql_query)
+	"""
 	#print(newest_force_json_data.encode())
+	"""
 	connSocket.sendall(newest_force_json_data.encode())
 	print_dbg(str(connSocket), DEBUG, 4)
+	"""

@@ -4,7 +4,7 @@ from socket import *
 import json
 
 # server: receive json or sound file
-serverIP = ""
+serverIP = "192.168.43.30"
 serverPort = 12000
 
 client = socket(AF_INET, SOCK_STREAM) # welcoming client
